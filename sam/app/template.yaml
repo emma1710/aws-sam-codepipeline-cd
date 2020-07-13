@@ -414,8 +414,8 @@ Resources:
       AuthenticationConfiguration:
         SecretToken: !Ref GitHubOAuthToken
       Filters:
-        - JsonPath: "$.ref"
-          MatchEquals: refs/heads/{Branch}
+        - JsonPath: ".action"
+          MatchEquals: "opened"
       Authentication: GITHUB_HMAC
       TargetPipeline: !Ref Pipeline
       TargetAction: GitHubSource
